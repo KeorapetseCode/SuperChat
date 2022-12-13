@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
 
 function Main() {
   const [myAssets] = useAssets(
-//    require("./assets/icon-square.png"),
-//    require("./assets/chatbg.png"),
+    require("./assets/icon-square.png"),
+    require("./assets/chatbg.png"),
     require("./assets/user-icon.png"),
     require("/assets/welcome-img.png")
   );
