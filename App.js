@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useAssets } from "expo-asset";
 
-export default function App() {
+function App() {
   return (
     <View style={styles.container}>
       <Text>Test App Works!</Text>
@@ -18,3 +19,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+function Main() {
+  const [myAssets] = useAssets(
+    require("./assets/icon-square.png"),
+    require("./assets/chatbg.png"),
+    require("./assets/user-icon.png"),
+    require("/assets/welcome-img.png")
+  );
+  if (!myAssets)
+    return <Text>Assets are still trying to load...</Text>
+  else
+    return <App />
+}
+
+export default Main
