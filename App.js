@@ -1,14 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { useAssets } from "expo-asset";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from "./firebase";
 
 function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Test App Works!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [currUser, setCurrUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (user) =>{
+      setLoading(false);
+      if (user) {
+        setCurrUser(user);
+      }
+    });
+    return () => unsub();
+  }, []);
+
+  if (loading){
+    return <Text>Still Loading....</Text>
+  }
+  else{
+    return (
+      <View style={styles.container}>
+        <Text>Test App Works!</Text>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
