@@ -25,7 +25,7 @@ function App() {
   else{
     return (
       <View style={styles.container}>
-        <Text>Test App Works!</Text>
+        <Text>{JSON.stringify(currUser)}</Text>
         <StatusBar style="auto" />
       </View>
     );
@@ -45,8 +45,8 @@ function Main() {
   const [myAssets] = useAssets(
     require("./assets/icon-square.png"),
     require("./assets/chatbg.png"),
+    //require("/assets/welcome-img2.png"),
     require("./assets/user-icon.png"),
-    require("/assets/welcome-img.png")
   );
   if (!myAssets)
     return <Text>Assets are still trying to load...</Text>
