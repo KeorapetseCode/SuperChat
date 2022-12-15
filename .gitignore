@@ -1,8 +1,9 @@
 node_modules/
-firebase.js
+app.config.js
 .expo/
 dist/
 npm-debug.*
+*.env
 *.jks
 *.p8
 *.p12
