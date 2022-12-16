@@ -10,8 +10,8 @@ import { auth } from "./firebase";
 LogBox.ignoreLogs([
   "Setting a timer",
   "AsyncStorage has been extracted from react-native core and will be removed in a future release.",
-]);*/
-
+]);
+*/
 
 function App() {
   const [currUser, setCurrUser] = useState(null);
@@ -33,7 +33,7 @@ function App() {
   else{
     return (
       <View style={styles.container}>
-        <Text>The name of the user {JSON.stringify(currUser)}</Text>
+        <Text>The name of the user: {JSON.stringify(currUser)}</Text>
         <StatusBar style="auto" />
       </View>
     );
