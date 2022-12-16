@@ -33,7 +33,7 @@ function App() {
   else{
     return (
       <View style={styles.container}>
-        <Text>It is me {JSON.stringify(currUser)}</Text>
+        <Text>The name of the user {JSON.stringify(currUser)}</Text>
         <StatusBar style="auto" />
       </View>
     );
